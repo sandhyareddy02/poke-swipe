@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Update the import to use Routes
 
-function App() {
+import WelcomeScreen from './components/WelcomeScreen';
+import PokemonCard from './components/PokemonCard';
+import LikedPokemons from './components/LikedPokemons';
+import { AppProvider } from './context/AppContext';
+import './index.css';
+
+const App = () => {
+  const [darkMode, setDarkMode] = useState(false);
+  const [currentId, setCurrentId] = useState(1);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppProvider>
+      <Router>
+        <div className='app'>
+          <Routes>
+            <Route path="/" element={<WelcomeScreen setDarkMode={setDarkMode} />} /> {/* Update to use element prop */}
+            <Route path="/swipe" element={<PokemonCard currentId={currentId} darkMode={darkMode} />} /> {/* Update to use element prop */}
+            <Route path="/liked" element={<LikedPokemons />} /> {/* Update to use element prop */}
+          </Routes>
+        </div>
+      </Router>
+    </AppProvider>
   );
-}
+};
 
 export default App;

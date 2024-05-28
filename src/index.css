@@ -1,13 +1,306 @@
-body {
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+}
+/*
+  Typographic tweaks!
+  3. Add accessible line-height
+  4. Improve text rendering
+*/
+body {
+  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+}
+/*
+  5. Improve media defaults
+*/
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  6. Remove built-in form typography styles
+*/
+input, button, textarea, select {
+  font: inherit;
+}
+/*
+  7. Avoid text overflows
+*/
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+/*
+  8. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.welcome-screen {
+  border: 3px solid black;
+  border-radius: 20px;
+  font-family: 'Bradley Hand ITC TT', cursive;
+  text-align: center;
+  margin-left: 540px;
+  margin-right: 580px;
+  margin-top: 100px;
+}
+
+.welcome-screen h2 {
+  font-size: 32px;
+  font-weight: 400;
+  letter-spacing: 0.8px;
+  text-align: left;
+  padding: 0px 0px 20px 10px;
+}
+
+.welcome-screen h4 {
+  font-size: 22.5px;
+  font-weight: 400;
+  letter-spacing: 0.8px;
+  text-align: left;
+  padding: 0px 0px 60px 10px;
+}
+
+.link-btn {
+  background-color: green;
+  border: 2px solid black;
+  margin: 0px 0px 30px 0px;
+  padding: 12px 120px;
+  border-radius: 14px;
+  color: black;
+}
+
+.dark-mode .link-btn{
+  color: white;
+}
+
+.liked-pokemons-toggle {
+  background-color: pink; 
+  border: none; 
+  border-radius: 50%; 
+  padding: 10px; 
+  margin-left: 220px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.liked-pokemons-toggle .heart-icon {
+  color: white; 
+  font-size: 20px; 
+}
+
+.pokemons-list{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.pokemon-card {
+  margin: 10px auto; 
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 10px;
+  width: 400px;
+  box-shadow: 2px 2px 12px #aaa;
+}
+
+.pokemon-card img {
+  width: 400px; 
+  height: 200px; 
+  border-radius: 10px; 
+}
+
+.pokemon-card h2 {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 10px; 
+}
+
+.card-list {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px; 
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.abilities {
+  display: flex; 
+  justify-content: space-between; 
+  background-color: yellow; 
+
+}
+
+.types {
+  display: flex; 
+  justify-content: space-between; 
+  background-color: blue; 
+}
+
+.abilities .ability-box,
+.types .type-box {
+  border: 1px solid black;
+  padding: 5px;
+  overflow: hidden;
+}
+
+.types {
+  background-color: blue;
+}
+
+.buttons{
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 6px;
+}
+
+.buttons button {
+  margin: 5px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.likebtn {
+  background-color: pink;
+  color: white;
+}
+
+.dislikebtn {
+  background-color: green;
+  color: white;
+}
+
+.liked-pokemons {
+  font-family: 'Bradley Hand ITC TT', cursive;
+  margin-left: 400px;
+  margin-right: 400px;
+  margin-top: 100px;
+  border: 3px solid black;
+}
+
+.pokemons-list{
+  margin-top: 40px;
+}
+
+.pokemon-likecards {
+  margin: 10px auto; 
+  border: 1px solid #ddd;
+  padding: 10px 10px;
+  border-radius: 10px;
+  width: 400px;
+  height: 250px;
+  box-shadow: 2px 2px 12px #aaa;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.pokemon-likecards img {
+  width: 300px; 
+  height: 150px; 
+  border-radius: 10px; 
+}
+
+.pokemon-likecards h3 {
+  margin-top: 170px;
+  margin-bottom: 10px;
+}
+
+
+.liked-pokemons h2{
+  text-align: left;
+  font-size: 26px;
+}
+
+
+.welcome-screen {
+  background-color: #ffffff; 
+  color: #333333; 
+}
+
+.welcome-screen .dark-mode-toggle {
+  background-color: #333333; 
+  color: #ffffff; 
+}
+
+.welcome-screen.dark-mode {
+  background-color: #333333; 
+  color: #ffffff; 
+}
+
+.welcome-screen.dark-mode .dark-mode-toggle {
+  background-color: #ffffff; 
+  color: #333333; 
+}
+
+
+.pokemon-card {
+  background-color: #ffffff; 
+  color: #333333; 
+}
+
+.pokemon-card.dark-mode-toggle {
+  background-color: #333333; 
+  color: #ffffff; 
+}
+
+.pokemon-card.dark-mode {
+  background-color: #333333; 
+  color: #ffffff; 
+}
+
+.pokemon-card.dark-mode .dark-mode-toggle{
+  background-color: #ffffff; 
+  color: #333333; 
+}
+
+
+/* For screens smaller than 768px */
+@media (max-width: 767px) {
+  .welcome-screen, .liked-pokemons {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .welcome-screen h2, .welcome-screen h4 {
+    text-align: center;
+    padding: 0;
+  }
+
+  .pokemon-card {
+    width: 90%;
+    margin: 10px auto;
+  }
+
+  .liked-pokemons {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+
+/* For screens between 768px and 1024px */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .welcome-screen, .liked-pokemons {
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+}
+
+/* For screens larger than 1024px */
+@media (min-width: 1024px) {
+  .welcome-screen, .liked-pokemons {
+    margin-left: 380px;
+    margin-right: 380px;
+  }
 }
